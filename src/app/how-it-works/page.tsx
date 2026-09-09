@@ -20,9 +20,8 @@ export default function HowItWorks() {
           </h1>
           <p className="mt-5 text-[15px] leading-relaxed text-ink-soft">
             Everyone self-reports through one Google Form. The Form writes to a Sheet, the
-            Sheet is published as a CSV, and the site reads that CSV on every visit
-            (refreshed at most every 5 minutes). No login, no database — just a spreadsheet
-            in the middle.
+            Sheet is published as a CSV, and the site reads that CSV in the background —
+            no login, no database, just a spreadsheet in the middle.
           </p>
 
           <ol className="mt-10 space-y-4">
@@ -32,7 +31,7 @@ export default function HowItWorks() {
               "In the Form's Responses tab, click the Sheets icon → Create a new spreadsheet.",
               "Open that spreadsheet → File → Share → Publish to web → select the \"Form Responses 1\" sheet → format CSV → Publish. Copy the URL.",
               "Set that URL as the SHEET_CSV_URL environment variable (in .env.local for dev, in Vercel's project settings for production), then redeploy.",
-              "Send the Form link to the group. Answers appear on the site within 5 minutes of submitting.",
+              "Send the Form link to the group. New answers show up on the site within 30 days on their own — to see them sooner, click Redeploy on the Vercel project (Deployments tab → ⋯ → Redeploy). No code change needed.",
             ].map((step, i) => (
               <li key={i} className="flex gap-3">
                 <span className="font-tag mt-0.5 shrink-0 text-sm text-rust">{i + 1}.</span>
