@@ -1,16 +1,16 @@
 import type { Person, PersonId } from "./types";
 
 export const PEOPLE: Person[] = [
-  { id: "anna", name: "Anna", color: "#c1552c" },
-  { id: "bernardo", name: "Bernardo", color: "#2d3b4e" },
-  { id: "ha", name: "Ha", color: "#74812f" },
-  { id: "lindsey", name: "Lindsey", color: "#ab3b2b" },
-  { id: "thomas", name: "Thomas", color: "#c99a2e" },
-  { id: "michelle", name: "Michelle", color: "#7a4a63" },
-  { id: "can", name: "Can", color: "#3f6b64" },
-  { id: "martha", name: "Martha", color: "#a8623f" },
-  { id: "hannah", name: "Hannah", color: "#46607a" },
-  { id: "ben", name: "Ben", color: "#5c4a2e" },
+  { id: "anna", name: "Anna", color: "#ef6fac" },
+  { id: "bernardo", name: "Bernardo", color: "#2f8f57" },
+  { id: "ha", name: "Ha", color: "#f2c14e" },
+  { id: "lindsey", name: "Lindsey", color: "#e5533d" },
+  { id: "thomas", name: "Thomas", color: "#ef8b3e" },
+  { id: "michelle", name: "Michelle", color: "#9b6bd6" },
+  { id: "can", name: "Can", color: "#2fb6c7" },
+  { id: "martha", name: "Martha", color: "#ddb64a" },
+  { id: "hannah", name: "Hannah", color: "#4f7cac" },
+  { id: "ben", name: "Ben", color: "#b5651d" },
 ];
 
 export const PEOPLE_BY_ID: Record<PersonId, Person> = Object.fromEntries(

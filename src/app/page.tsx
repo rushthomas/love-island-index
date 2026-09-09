@@ -1,6 +1,9 @@
 import { Masthead } from "@/components/Masthead";
 import { FrameworkSection } from "@/components/FrameworkSection";
 import { PersonAvatar } from "@/components/PersonAvatar";
+import { PalmTree } from "@/components/decor/PalmTree";
+import { SunBurst } from "@/components/decor/SunBurst";
+import { StarShape } from "@/components/decor/StarShape";
 import { PEOPLE } from "@/lib/people";
 import { fetchSheetRows } from "@/lib/sheet";
 import { mergeResponsesIntoFrameworks, peopleMissingFromRows } from "@/lib/mergeResponses";
@@ -13,10 +16,15 @@ export default async function Home() {
   return (
     <>
       <Masthead />
-      <main className="flex-1 bg-halftone bg-paper pb-24">
+      <main className="bg-grid relative flex-1 overflow-hidden bg-paper pb-24">
+        <SunBurst className="pointer-events-none absolute -top-8 right-4 w-24 sm:right-10 sm:w-32" />
+        <StarShape className="pointer-events-none absolute top-40 left-6 w-8 sm:left-16 sm:w-10" />
+        <PalmTree className="pointer-events-none absolute top-6 left-2 w-14 -scale-x-100 sm:w-20" />
+        <PalmTree className="pointer-events-none absolute top-16 right-8 w-16 sm:w-24" />
+
         {/* Cover */}
-        <div className="mx-auto max-w-3xl px-6 pt-16 pb-10 text-center sm:pt-24">
-          <p className="font-tag mb-4 text-xs uppercase tracking-[0.3em] text-ink-faint">
+        <div className="relative mx-auto max-w-3xl px-6 pt-16 pb-10 text-center sm:pt-24">
+          <p className="font-tag mb-4 text-xs uppercase tracking-[0.3em] text-ink-soft">
             A Field Guide, Self-Reported
           </p>
           <h1 className="font-display text-5xl uppercase leading-[0.95] text-ink sm:text-7xl">
@@ -37,7 +45,7 @@ export default async function Home() {
           </div>
 
           {rows === null && (
-            <p className="font-tag mt-6 text-xs text-ink-faint">
+            <p className="font-tag mt-6 text-xs text-ink-soft">
               Showing seed data only — connect the Sheet to go live. See{" "}
               <a href="/how-it-works" className="underline">
                 how this works
@@ -46,15 +54,15 @@ export default async function Home() {
             </p>
           )}
           {rows !== null && missing.length > 0 && (
-            <p className="font-tag mt-6 text-xs text-ink-faint">
+            <p className="font-tag mt-6 text-xs text-ink-soft">
               Still waiting on: {missing.join(", ")}
             </p>
           )}
         </div>
 
         {/* Table of contents */}
-        <div className="stitched mx-auto mb-16 max-w-3xl rounded-sm bg-paper-panel p-6 sm:p-8">
-          <p className="font-tag mb-4 text-center text-xs uppercase tracking-widest text-ink-faint">
+        <div className="stitched relative mx-auto mb-16 max-w-3xl rounded-3xl bg-paper-panel p-6 sm:p-8">
+          <p className="font-tag mb-4 text-center text-xs uppercase tracking-widest text-ink-soft">
             Contents
           </p>
           <ol className="grid grid-cols-1 gap-x-8 gap-y-2 sm:grid-cols-2">
@@ -76,8 +84,8 @@ export default async function Home() {
           <FrameworkSection key={framework.id} framework={framework} />
         ))}
 
-        <footer className="mx-auto mt-4 max-w-3xl px-6 text-center">
-          <p className="font-tag text-xs text-ink-faint">
+        <footer className="relative mx-auto mt-4 max-w-3xl px-6 text-center">
+          <p className="font-tag text-xs text-ink-soft">
             End of catalog. Answers update as the{" "}
             <a href="/how-it-works" className="underline">
               form

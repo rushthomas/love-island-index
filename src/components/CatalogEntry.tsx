@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 
+const BADGE_COLORS = ["var(--mustard)", "var(--burnt)", "var(--rust)", "var(--olive)"];
+
 export function CatalogEntry({
   number,
   title,
@@ -13,21 +15,26 @@ export function CatalogEntry({
   note?: string;
   children: ReactNode;
 }) {
+  const badgeColor = BADGE_COLORS[(number - 1) % BADGE_COLORS.length];
+
   return (
     <section
       id={`item-${number}`}
-      className="sticker stitched relative mx-auto mb-14 w-full max-w-3xl scroll-mt-24 rounded-sm p-6 sm:p-9"
+      className="stitched relative mx-auto mb-16 w-full max-w-3xl scroll-mt-24 rounded-3xl bg-paper-panel p-6 sm:p-9"
     >
-      <div className="washi-tape -top-3 left-8 -rotate-3" aria-hidden="true" />
-      <div className="mb-5 flex items-baseline gap-3">
-        <span className="font-tag text-sm text-ink-faint">No. {String(number).padStart(2, "0")}</span>
-        <div className="h-px flex-1 bg-line" />
+      <div
+        className="sticker absolute -top-5 -left-3 flex h-12 w-12 -rotate-6 items-center justify-center rounded-full font-display text-lg"
+        style={{ background: badgeColor }}
+        aria-hidden="true"
+      >
+        {String(number).padStart(2, "0")}
       </div>
-      <h2 className="font-display text-3xl uppercase leading-none text-ink sm:text-4xl">{title}</h2>
-      <p className="mt-3 max-w-xl font-body text-[15px] leading-snug text-ink-soft">{prompt}</p>
-      {note && (
-        <p className="font-tag mt-2 text-xs italic text-ink-faint">{note}</p>
-      )}
+
+      <h2 className="font-display mt-3 text-3xl uppercase leading-none text-ink sm:text-4xl">
+        {title}
+      </h2>
+      <p className="mt-3 max-w-xl text-[15px] leading-snug text-ink-soft">{prompt}</p>
+      {note && <p className="font-tag mt-2 text-xs italic text-ink-faint">{note}</p>}
       <div className="mt-7">{children}</div>
     </section>
   );

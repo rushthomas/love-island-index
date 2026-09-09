@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #f3ead9;
-  --paper-deep: #ead9bd;
-  --paper-panel: #fbf5e8;
-  --ink: #262019;
-  --ink-soft: #5c5346;
-  --ink-faint: #8a8071;
-  --mustard: #c99a2e;
-  --burnt: #c1552c;
-  --olive: #5f6b3e;
-  --rust: #ab3b2b;
-  --navy: #2d3b4e;
-  --line: #cbb98f;
-  --line-strong: #a8945f;
+  --paper: #efe1ef;
+  --paper-deep: #e3c9e6;
+  --paper-panel: #fdf9fc;
+  --ink: #14110f;
+  --ink-soft: #46403f;
+  --ink-faint: #8a8290;
+  --mustard: #d8ea3f;
+  --burnt: #ef8b3e;
+  --olive: #2f8f57;
+  --rust: #ef5fa3;
+  --navy: #4b3869;
+  --line: #e3cbe6;
+  --line-strong: #14110f;
 }
 
 @theme inline {
@@ -30,7 +30,7 @@
   --color-navy: var(--navy);
   --color-line: var(--line);
   --color-line-strong: var(--line-strong);
-  --font-display: var(--font-anton);
+  --font-display: var(--font-baloo);
   --font-body: var(--font-archivo);
   --font-tag: var(--font-space-mono);
 }
@@ -51,10 +51,22 @@ body {
   position: relative;
 }
 
-/* Fine halftone dot texture, catalog-paper style. */
-.bg-halftone {
-  background-image: radial-gradient(var(--ink) 0.6px, transparent 0.6px);
-  background-size: 7px 7px;
+/* Faint graph-paper grid, 80s-beach-poster style. Lines, not dots — legible under body copy. */
+.bg-grid {
+  background-image: repeating-linear-gradient(
+      0deg,
+      rgba(20, 17, 15, 0.06) 0px,
+      rgba(20, 17, 15, 0.06) 1px,
+      transparent 1px,
+      transparent 64px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(20, 17, 15, 0.06) 0px,
+      rgba(20, 17, 15, 0.06) 1px,
+      transparent 1px,
+      transparent 64px
+    );
 }
 
 /* Grain overlay, fixed over the whole viewport, screened on top of everything. */
@@ -63,45 +75,48 @@ body {
   inset: 0;
   z-index: 60;
   pointer-events: none;
-  opacity: 0.05;
+  opacity: 0.035;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   background-size: 140px 140px;
 }
 
 .font-display {
-  font-family: var(--font-anton), ui-sans-serif, sans-serif;
-  letter-spacing: 0.01em;
+  font-family: var(--font-baloo), ui-sans-serif, sans-serif;
 }
 
 .font-tag {
   font-family: var(--font-space-mono), ui-monospace, monospace;
 }
 
-/* Dashed "stitched" border, used on cards and panels. */
+/* Thick black outline + hard offset "sticker" shadow, used on cards and panels. */
 .stitched {
-  border: 1.5px dashed var(--line-strong);
+  border: 2.5px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
 }
 
-/* Rotated photo/sticker treatment for avatars and callouts. */
+/* Same idea, smaller — for avatars and small chips. */
 .sticker {
   background: var(--paper-panel);
-  border: 1px solid var(--line-strong);
-  box-shadow: 0 1px 0 rgba(38, 32, 25, 0.05), 2px 3px 8px rgba(38, 32, 25, 0.12);
+  border: 2px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
 }
 
-.washi-tape {
-  position: absolute;
-  height: 1.4rem;
-  width: 3.4rem;
-  background: repeating-linear-gradient(
-    45deg,
-    rgba(193, 85, 44, 0.55),
-    rgba(193, 85, 44, 0.55) 4px,
-    rgba(193, 85, 44, 0.35) 4px,
-    rgba(193, 85, 44, 0.35) 8px
-  );
-  opacity: 0.85;
+/* Chunky pill button — nav links, tags. */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  border: 2px solid var(--ink);
+  border-radius: 9999px;
+  background: var(--mustard);
+  color: var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.1s ease;
+}
+
+.pill:hover {
+  transform: translate(-1px, -1px);
 }
 
 .rule {
@@ -109,7 +124,7 @@ body {
 }
 
 .rule-strong {
-  border-top: 2px solid var(--ink);
+  border-top: 2.5px solid var(--ink);
 }
 
 ::selection {

@@ -24,9 +24,9 @@ export function RankingBoard({ framework }: { framework: RankingFramework }) {
             <div key={person.id} className="flex items-center gap-3">
               <span className="font-tag w-5 text-right text-xs text-ink-faint">{i + 1}</span>
               <PersonAvatar person={person} size="sm" />
-              <div className="relative h-6 flex-1 overflow-hidden rounded-sm bg-paper-deep">
+              <div className="relative h-6 flex-1 overflow-hidden rounded-full border-2 border-ink bg-paper-deep">
                 <div
-                  className="h-full rounded-sm"
+                  className="h-full rounded-full"
                   style={{ width: `${pct}%`, background: person.color }}
                 />
               </div>

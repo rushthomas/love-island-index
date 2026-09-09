@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Anton, Archivo, Space_Mono } from "next/font/google";
+import { Baloo_2, Archivo, Space_Mono } from "next/font/google";
 import "./globals.css";
 
-const anton = Anton({
-  variable: "--font-anton",
+const baloo = Baloo_2({
+  variable: "--font-baloo",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["700", "800"],
 });
 
 const archivo = Archivo({
@@ -28,7 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${anton.variable} ${archivo.variable} ${spaceMono.variable} h-full antialiased`}
+      className={`${baloo.variable} ${archivo.variable} ${spaceMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-paper text-ink">
         <div className="grain-overlay" aria-hidden="true" />

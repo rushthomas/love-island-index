@@ -12,7 +12,7 @@ export default function HowItWorks() {
   return (
     <>
       <Masthead />
-      <main className="flex-1 bg-halftone bg-paper pb-24">
+      <main className="bg-grid flex-1 bg-paper pb-24">
         <div className="mx-auto max-w-2xl px-6 pt-16 sm:pt-20">
           <p className="font-tag mb-3 text-xs uppercase tracking-[0.3em] text-ink-faint">Appendix</p>
           <h1 className="font-display text-4xl uppercase leading-none text-ink sm:text-5xl">
@@ -40,7 +40,7 @@ export default function HowItWorks() {
             ))}
           </ol>
 
-          <div className="stitched mt-10 rounded-sm bg-paper-panel p-5">
+          <div className="stitched mt-10 rounded-3xl bg-paper-panel p-5">
             <p className="font-tag mb-2 text-xs uppercase tracking-widest text-ink-faint">
               Note on the nomination question
             </p>

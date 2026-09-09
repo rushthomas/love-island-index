@@ -18,7 +18,7 @@ export function NominationLineup({ framework }: { framework: NominationFramework
           return (
             <div
               key={person.id}
-              className={`flex flex-col items-center gap-2 rounded-sm p-2 transition ${
+              className={`flex flex-col items-center gap-2 rounded-2xl p-2 transition ${
                 isAnswer ? "stitched bg-paper-panel" : "opacity-70"
               }`}
               style={isAnswer ? { borderColor: "var(--rust)" } : undefined}

@@ -3,10 +3,10 @@ import type { TimeAllocationFramework } from "@/lib/types";
 import { PersonAvatar } from "../PersonAvatar";
 
 const CATEGORY_COLOR: Record<string, string> = {
-  Past: "#8a8071",
-  "Micro-Present": "#c99a2e",
-  Present: "#c1552c",
-  Future: "#2d3b4e",
+  Past: "#a89bc4",
+  "Micro-Present": "#f2c14e",
+  Present: "#ef6fac",
+  Future: "#4b3869",
 };
 
 export function TimeAllocationBars({ framework }: { framework: TimeAllocationFramework }) {
@@ -41,7 +41,7 @@ export function TimeAllocationBars({ framework }: { framework: TimeAllocationFra
               </div>
 
               {total > 0 ? (
-                <div className="flex h-7 w-full overflow-hidden rounded-sm border border-line-strong">
+                <div className="flex h-8 w-full overflow-hidden rounded-full border-2 border-ink">
                   {framework.categories.map((cat) => {
                     const v = values[cat];
                     if (!v) return null;
@@ -54,7 +54,9 @@ export function TimeAllocationBars({ framework }: { framework: TimeAllocationFra
                         title={`${cat}: ${v}%`}
                       >
                         {pct > 9 && (
-                          <span className="font-tag text-[10px] font-bold text-paper-panel">{v}%</span>
+                          <span className="font-tag rounded-full bg-paper-panel px-1.5 py-0.5 text-[10px] font-bold text-ink">
+                            {v}%
+                          </span>
                         )}
                       </div>
                     );

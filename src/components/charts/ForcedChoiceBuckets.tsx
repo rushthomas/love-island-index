@@ -12,7 +12,7 @@ export function ForcedChoiceBuckets({ framework }: { framework: ForcedChoiceFram
         {framework.options.map((option) => {
           const inBucket = answered.filter((p) => framework.picks[p.id]!.primary === option);
           return (
-            <div key={option} className="stitched rounded-sm bg-paper-panel p-4">
+            <div key={option} className="stitched rounded-2xl bg-paper-panel p-4">
               <h3 className="font-tag mb-3 text-center text-xs uppercase tracking-widest text-ink-soft">
                 {option}
               </h3>
