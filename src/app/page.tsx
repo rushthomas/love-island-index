@@ -51,7 +51,7 @@ export default async function Home() {
             rel="noopener noreferrer"
             className="pill mt-8 px-6 py-2.5 text-sm font-bold uppercase tracking-widest hover:brightness-95"
           >
-            Take the Form ↗
+            Take the Quiz ↗
           </a>
 
           {rows === null && (

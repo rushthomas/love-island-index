@@ -30,7 +30,7 @@ export default function HowItWorks() {
             rel="noopener noreferrer"
             className="pill mt-6 px-5 py-2 text-xs font-bold uppercase tracking-widest hover:brightness-95"
           >
-            Take the Form ↗
+            Take the Quiz ↗
           </a>
 
           <ol className="mt-10 space-y-4">
