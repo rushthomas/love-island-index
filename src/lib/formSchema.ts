@@ -3,14 +3,15 @@ import { PEOPLE } from "./people";
 /**
  * Single source of truth for the Google Form.
  *
- * `header` must match the Form question's title EXACTLY — Google Sheets names
- * the response column after the question text verbatim. Copy these into your
- * Form in this order (see /how-it-works for the human-readable version) and
- * the CSV parser in sheet.ts will pick every answer up automatically.
+ * `header` must match the Form question's title EXACTLY (trailing/leading
+ * whitespace aside — the CSV parser trims those) — Google Sheets names the
+ * response column after the question text verbatim. This file mirrors the
+ * live Form at docs.google.com/spreadsheets/d/1O_KiEbSomC_utjEN8BodIUqQszbYzdXtfifUgsHFd-4;
+ * if you add or reword a question there, update it here to match.
  */
 
 export const NAME_QUESTION = {
-  header: "What's your name?",
+  header: "Who are you?",
   questionType: "dropdown" as const,
   options: PEOPLE.map((p) => p.name),
 };
@@ -35,59 +36,54 @@ export const FORM_FIELDS: FormField[] = [
     target: { frameworkId: "whimsy", kind: "score" },
   },
   {
-    header: "How Love Island is a Love Island night — rate yourself, 1 (not at all) to 10 (main character energy)",
-    questionType: "scale",
-    target: { frameworkId: "love-island-night", kind: "score" },
-  },
-  {
-    header: "Mommy, Daddy, or Baby — your PRIMARY",
+    header: "Mommy, Daddy, Baby. Your PRIMARY",
     questionType: "multipleChoice",
     options: ["Mommy", "Daddy", "Baby"],
     target: { frameworkId: "mommy-daddy-baby", kind: "primary" },
   },
   {
-    header: "Mommy, Daddy, or Baby — your SECONDARY (different from your primary)",
+    header: "Mommy, Daddy, Baby. Your SECONDARY",
     questionType: "multipleChoice",
     options: ["Mommy", "Daddy", "Baby"],
     target: { frameworkId: "mommy-daddy-baby", kind: "secondary" },
   },
   {
-    header: "Biggest to smallest male lesbian — rate yourself, 1 (smallest) to 10 (biggest)",
+    header: "Smallest to Biggest Male Lesbian — rate yourself, 1 (smallest) to 10 (biggest)",
     questionType: "scale",
     target: { frameworkId: "male-lesbian", kind: "score" },
   },
   {
-    header: "Anticipation: do you enjoy the wait, or dislike it? 1 (dislike it) to 10 (love it)",
+    header: "Anticipation: do you enjoy the wait, or dislike it?",
     questionType: "scale",
     target: { frameworkId: "anticipation-enjoyment", kind: "score" },
   },
   {
-    header: "Anticipation: how much do you feel the excitement of a future plan coming up? 1 (barely) to 10 (constantly buzzing)",
+    header: "Anticipation: how much do you feel the excitement of a future plan coming up?",
     questionType: "scale",
     target: { frameworkId: "anticipation-excitement", kind: "score" },
   },
   {
-    header: "Technology skills — rate yourself, 1 (please help) to 10 (certified wizard)",
+    header: "Technology skills",
     questionType: "scale",
     target: { frameworkId: "tech-skills", kind: "score" },
   },
   {
-    header: "Sex workers — would you date one? 1 (no) to 10 (absolutely)",
+    header: "Sex workers — would you date one?",
     questionType: "scale",
     target: { frameworkId: "sex-worker-quadrant", kind: "x" },
   },
   {
-    header: "Sex workers — would you hire one? 1 (no) to 10 (absolutely)",
+    header: "Sex workers — would you hire one?",
     questionType: "scale",
     target: { frameworkId: "sex-worker-quadrant", kind: "y" },
   },
   {
-    header: "Re-watcher: how much do you rewatch movies vs. start something new? 1 (always new) to 10 (rewatch forever)",
+    header: "Re-watcher: how much do you rewatch movies vs. start something new?",
     questionType: "scale",
     target: { frameworkId: "rewatch-reread", kind: "x" },
   },
   {
-    header: "Re-reader: how much do you reread books vs. start something new? 1 (always new) to 10 (reread forever)",
+    header: "Re-reader: how much do you reread books vs. start something new?",
     questionType: "scale",
     target: { frameworkId: "rewatch-reread", kind: "y" },
   },
@@ -97,22 +93,23 @@ export const FORM_FIELDS: FormField[] = [
     target: { frameworkId: "time-allocation", kind: "timeCategory", category: "Past" },
   },
   {
-    header: "Time allocation — Micro-present: what % is the immediate, right-now moment?",
+    header: "Time allocation — Micro-present: what % of your headspace is dedicated to the immediate, right-now moment?",
     questionType: "numberShortAnswer",
     target: { frameworkId: "time-allocation", kind: "timeCategory", category: "Micro-Present" },
   },
   {
-    header: "Time allocation — Present: what % is the broader here-and-now?",
+    header: "Time allocation — Present: what % of your headspace is dedicated to the broader here-and-now?",
     questionType: "numberShortAnswer",
     target: { frameworkId: "time-allocation", kind: "timeCategory", category: "Present" },
   },
   {
-    header: "Time allocation — Future: what % is the future?",
+    header: "Time allocation — Future: what % of your headspace is dedicated to the future?",
     questionType: "numberShortAnswer",
     target: { frameworkId: "time-allocation", kind: "timeCategory", category: "Future" },
   },
   {
-    header: "Most likely to operate a leaf blower — rate yourself, 1 (never touched one) to 10 (suburban essence)",
+    header:
+      "Suburban Essence: The Leafblower Scale - How likely are you to know how to FLAWLESSLY operate a leaf blower or other yard maintenance equipment?",
     questionType: "scale",
     target: { frameworkId: "leaf-blower", kind: "score" },
   },
