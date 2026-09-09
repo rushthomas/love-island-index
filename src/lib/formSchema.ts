@@ -10,6 +10,10 @@ import { PEOPLE } from "./people";
  * if you add or reword a question there, update it here to match.
  */
 
+/** The respondent link — send this to the group so they can submit answers. */
+export const FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSc4SkLD3fsVS08HXIPoyP6ytkhovQrvYsSSf7M03zMIwzXbRw/viewform";
+
 export const NAME_QUESTION = {
   header: "Who are you?",
   questionType: "dropdown" as const,

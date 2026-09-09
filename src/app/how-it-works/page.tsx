@@ -1,5 +1,5 @@
 import { Masthead } from "@/components/Masthead";
-import { FORM_FIELDS, NAME_QUESTION } from "@/lib/formSchema";
+import { FORM_FIELDS, FORM_URL, NAME_QUESTION } from "@/lib/formSchema";
 
 const QUESTION_TYPE_LABEL: Record<string, string> = {
   dropdown: "Dropdown",
@@ -23,6 +23,15 @@ export default function HowItWorks() {
             Sheet is published as a CSV, and the site reads that CSV in the background —
             no login, no database, just a spreadsheet in the middle.
           </p>
+
+          <a
+            href={FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pill mt-6 px-5 py-2 text-xs font-bold uppercase tracking-widest hover:brightness-95"
+          >
+            Take the Form ↗
+          </a>
 
           <ol className="mt-10 space-y-4">
             {[

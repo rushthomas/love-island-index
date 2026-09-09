@@ -7,6 +7,7 @@ import { StarShape } from "@/components/decor/StarShape";
 import { PEOPLE } from "@/lib/people";
 import { fetchSheetRows } from "@/lib/sheet";
 import { mergeResponsesIntoFrameworks, peopleMissingFromRows } from "@/lib/mergeResponses";
+import { FORM_URL } from "@/lib/formSchema";
 
 export default async function Home() {
   const rows = await fetchSheetRows();
@@ -43,6 +44,15 @@ export default async function Home() {
               <PersonAvatar key={p.id} person={p} />
             ))}
           </div>
+
+          <a
+            href={FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pill mt-8 px-6 py-2.5 text-sm font-bold uppercase tracking-widest hover:brightness-95"
+          >
+            Take the Form ↗
+          </a>
 
           {rows === null && (
             <p className="font-tag mt-6 text-xs text-ink-soft">
