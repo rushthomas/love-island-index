@@ -12,7 +12,7 @@ import { PEOPLE } from "./people";
 export const NAME_QUESTION = {
   header: "What's your name?",
   questionType: "dropdown" as const,
-  options: PEOPLE.filter((p) => p.id !== "katie").map((p) => p.name),
+  options: PEOPLE.map((p) => p.name),
 };
 
 export type FormFieldTarget =

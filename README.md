@@ -53,14 +53,9 @@ deploy.
 
 ## Known open items
 
-- **Roster**: the group as given is Anna, Bernardo, Ha, Lindsey, Thomas, Michelle,
-  Can, Martha, Hannah, Ben — plus **Katie**, who has real seed answers (the
-  time-allocation numbers) but wasn't on that list. She's kept as an 11th person in
-  `src/lib/people.ts` for now; confirm whether that's right or whether her answers
-  actually belong to Hannah, and edit the roster/seed data accordingly.
-- **Martha's and Katie's time-allocation numbers** were given as combined buckets
-  (Martha: micro-present + present as one 60%; Katie: past-or-future as one 30%).
-  Both were split with a documented assumption in `src/data/frameworks.ts` — search
-  for `annotations` on the `time-allocation` framework to adjust.
+- **Martha's time-allocation numbers** were given as a combined bucket
+  (micro-present + present as one 60%). Shown here all in "Present" — search for
+  `annotations` on the `time-allocation` framework in `src/data/frameworks.ts` to
+  split it.
 - **The Google Drive nomination** ("who does Lindsey trust the least") has no answer
   yet — set it on the `drive-snoop` framework in `src/data/frameworks.ts`.

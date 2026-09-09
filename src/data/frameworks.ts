@@ -155,7 +155,6 @@ const timeAllocation: TimeAllocationFramework = {
     thomas: { Past: 0 },
     lindsey: { Past: 10, "Micro-Present": 5, Present: 55, Future: 30 },
     martha: { Past: 10, "Micro-Present": 0, Present: 60, Future: 30 },
-    katie: { Past: 15, "Micro-Present": 30, Present: 40, Future: 15 },
   },
   annotations: {
     thomas: "Zero past. Rest not yet specified.",
@@ -163,8 +162,6 @@ const timeAllocation: TimeAllocationFramework = {
       "Future includes far-existential future: romantic elderly experiences, death, still being best friends with her sister at 80.",
     martha:
       "Gave micro-present and broader present as one combined 60% bucket — shown here all in \"Present\"; edit this file to split it.",
-    katie:
-      "Gave past-or-future as one combined 30% bucket — split evenly here between Past and Future; edit this file to correct.",
   },
 };
 

@@ -11,9 +11,6 @@ export const PEOPLE: Person[] = [
   { id: "martha", name: "Martha", color: "#a8623f" },
   { id: "hannah", name: "Hannah", color: "#46607a" },
   { id: "ben", name: "Ben", color: "#5c4a2e" },
-  // Not on the original roster you gave me, but has real seed answers below —
-  // confirm whether this is a real 11th person or a stand-in for someone else.
-  { id: "katie", name: "Katie", color: "#935e38" },
 ];
 
 export const PEOPLE_BY_ID: Record<PersonId, Person> = Object.fromEntries(
